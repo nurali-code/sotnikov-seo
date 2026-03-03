@@ -67,7 +67,7 @@
         font-size: 14px
 
 %font-xl
-    font-weight: 400
+    font-weight: 500
     font-size: 24px
     line-height: 135%
     @media screen and ( max-width: 992px )
@@ -77,14 +77,14 @@
         font-size: 20px
 
 %font-h2
-    font-weight: 400
+    font-weight: 600
     font-size: 32px
     line-height: 110%
     @media screen and ( max-width: 700px )
         font-size: 24px
 
 %font-h1
-    font-weight: 400
+    font-weight: 700
     font-size: 48px
     line-height: 110%
 
@@ -105,68 +105,3 @@
     &>*
         flex-shrink: 0
         width: calc( (100% - var(--gap) * (var(--col) - 1)) / var(--col) )
-
-%glass
-    position: relative
-    border-radius: var(--radius)
-    background-color: var(--bg)
-    box-shadow: inset -4px -4px 22px 0 rgba(225, 225, 225, .050), inset 8px 8px 26px 0 rgba(0, 0, 0, .8)
-    &::before,
-    &::after
-        content: ''
-        display: block
-        width: 100%
-        height: 100%
-        position: absolute
-        z-index: -1
-        top: -1px
-        left: -1px
-        border-radius: var(--radius)
-        opacity: .4
-        pointer-events: none
-
-    &::before
-        background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%)
-
-    &::after
-        top: 1px
-        left: 1px
-        background: linear-gradient(315deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%)
-
-@media screen and ( max-width: 700px )
-    %glass-mob
-        position: relative
-        border-radius: var(--radius)
-        background-color: var(--bg)
-        box-shadow: inset -4px -4px 22px 0 rgba(225, 225, 225, .050), inset 8px 8px 26px 0 rgba(0, 0, 0, .8)
-        &::before,
-        &::after
-            content: ''
-            display: block
-            width: 100%
-            height: 100%
-            position: absolute
-            z-index: -1
-            top: -1px
-            left: -1px
-            border-radius: var(--radius)
-            opacity: .4
-            pointer-events: none
-
-        &::before
-            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%)
-
-        &::after
-            top: 1px
-            left: 1px
-            background: linear-gradient(315deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%)
-
-    %line-mob
-        content: ''
-        position: absolute
-        bottom: 0
-        left: 0
-        height: 1px
-        background-color: var(--white-fade)
-        width: calc( 100% + var(--cont-padd) * 2 )
-        left: calc( 0px - var(--cont-padd) )

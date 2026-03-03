@@ -24,7 +24,7 @@
 		position: absolute
 		top: 50%
 		right: 0
-		width: 60%
+		width: 65%
 		transform: translateY(-50%)
 		padding: 20px 40px 20px 0
 
@@ -32,23 +32,24 @@
 		@extend %font-h1
 		margin: 0
 
-	p
+	&__text
 		text-transform: uppercase
 		text-wrap: balance
+		max-width: 450px
 		@extend %font-lg
-		margin: 0
+		margin: 0 auto
 
 	@media screen and ( max-width: 700px )
 		&__img
-			min-height: 150px
+			min-height: 170px
 
 		&__content
-			width: 58%
+			width: 72%
 			gap: 10px
 			padding: 10px 15px 10px 0
 
-			p
-				font-size: 12px
+		&__text
+			font-size: 11px
 
 .services
 	h2
