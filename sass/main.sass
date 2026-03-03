@@ -28,7 +28,16 @@
 		transform: translateY(-50%)
 		padding: 20px 40px 20px 0
 
-	h1
+
+	.hd
+		opacity: 0
+		font-size: 10px
+		position: absolute
+		top: 0
+		left: 0
+		pointer-events: none
+
+	&__title
 		@extend %font-h1
 		font-weight: normal
 		margin: 0
@@ -57,10 +66,10 @@
 			font-size: 14px
 
 	@media screen and ( max-width: 540px )
-		h1
+		&__title
 			font-size: 5.7vw
 
-		.hero__text
+		&__text
 			font-size: 2.7vw
 			margin: 0 0 0 auto
 
