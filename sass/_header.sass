@@ -1,0 +1,26 @@
+.header
+    .container
+        padding: 20px var(--cont-padd) 18px
+        @extend %flex-ac
+        @extend %flex-jb
+        background-color: rgba(0, 0, 0, .2)
+        border-left: 1px solid var(--white-fade)
+        border-right: 1px solid var(--white-fade)
+
+    @media screen and (max-width: 700px)
+        .container
+            padding: 15px 10px 15px
+
+        *
+            font-size: 14px
+
+.lang
+    @extend %flex-ac
+    gap: 10px
+    &__item
+        color: var(--gray)
+        &:hover
+            color: var(--white)
+        &.--active
+            color: var(--white)
+            pointer-events: none

@@ -1,0 +1,148 @@
+/* Slider */
+
+.slick
+    &-list
+        position: relative
+        overflow: hidden
+        display: block
+        margin: 0
+        padding: 0
+
+        &:focus
+            outline: none
+        &.dragging
+            cursor: pointer
+            cursor: hand
+
+    &-slider
+        --slick-gap: 24px
+        width: calc(100% + var(--slick-gap))
+        position: relative
+        overflow: hidden
+        display: block
+        box-sizing: border-box
+        -webkit-touch-callout: none
+        user-select: none
+        touch-action: pan-y
+        -webkit-tap-highlight-color: transparent
+        left: calc(var(--slick-gap) / -2)
+        position: relative
+
+        .slick-track,
+        .slick-list
+            -webkit-transform: translate3d(0, 0, 0)
+            -moz-transform: translate3d(0, 0, 0)
+            -ms-transform: translate3d(0, 0, 0)
+            -o-transform: translate3d(0, 0, 0)
+            transform: translate3d(0, 0, 0)
+
+    &-track
+        position: relative
+        left: 0
+        top: 0
+        // height: 100%
+        display: flex
+        margin-left: auto
+        margin-right: auto
+
+        .slick-loading &
+            visibility: hidden
+
+    &-slide
+        float: left
+        height: 100%
+        margin: 0
+        min-height: 1px
+        transition: all ease .3s
+        margin: 0 calc( var(--slick-gap) / 2 )
+        opacity: 0
+        // [dir="rtl"] &
+        //     float: right
+
+        img
+            display: block
+
+        &.slick-loading img
+            display: none
+
+        &.dragging img
+            pointer-events: none
+
+        &.slick-active
+            opacity: 1
+
+        .slick-loading &
+            visibility: hidden
+
+        .slick-vertical &
+            display: block
+            height: auto
+
+    &-arrow.slick-hidden
+        display: none
+
+    &-arrow
+        flex: 1
+        width: 48px
+        height: 34px
+        border: $border-light
+        background-color: $blue
+        background-repeat: no-repeat
+        background-position: center
+        background-size: auto 50%
+        font-size: 0
+        &.slick-disabled
+            opacity: .5
+            cursor: not-allowed
+
+    &-prev
+        border-right: none
+        border-radius: 60px 0 0 60px
+        background-image: url('../img/icons/left-arrow.svg')
+
+    &-next
+        border-radius: 0 60px 60px 0
+        background-image: url('../img/icons/rigth-arrow.svg')
+
+    &-dots
+        display: flex
+        width: fit-content
+        background-color: #F4F4F5
+        align-items: center
+        justify-content: center
+        padding: 12px 8px
+        gap: 12px
+        border-radius: 40px
+        margin: 20px auto 0
+        li
+            padding: 0 3.5px
+            line-height: 0
+
+        button
+            width: 8px
+            height: 8px
+            font-size: 0
+            border-radius: 50%
+            opacity: .4
+            color: rgba(0, 0, 0, 0)
+
+        .slick-active button
+            opacity: 1
+            transform: scale(2)
+
+        @media screen and ( max-width: 720px )
+            margin-top: 12px
+
+    &-disabled
+        cursor: no-drop
+        pointer-events: none
+        &::after
+            opacity: 0
+
+    @media screen and ( max-width: 1520px )
+        &-slider
+            width: calc(100% + var(--cont-padd)*2)
+            left: calc(0px - var(--cont-padd))
+
+        &-list
+            padding: 0 calc( var(--cont-padd) - (var(--slick-gap) / 2) ) !important

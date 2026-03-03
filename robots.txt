@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /*.jpg?*$
+Allow: /*.png?*$
+Disallow: 
+Host: sotnikov.com.ru
+Sitemap: https://sotnikov.com.ru/sitemap.xml

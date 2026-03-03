@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+<url>
+<loc>https://sotnikov.com.ru/</loc>
+<priority>1.0</priority>
+<image:image>
+<image:loc>https://sotnikov.com.ru/images/IPSC.png</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://sotnikov.com.ru/images/IPSC_ru_1.png</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://sotnikov.com.ru/images/logo_lizaalert_car.png</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://sotnikov.com.ru/images/logo_lizaalert_star.png</image:loc>
+</image:image>
+</url>
+
+<url>
+<loc>https://sotnikov.com.ru/eng/</loc>
+<priority>0.9</priority>
+</url>
+
+</urlset>

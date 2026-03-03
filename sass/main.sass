@@ -1,0 +1,170 @@
+@import 'normolize'
+@import 'var'
+@import 'fonts'
+@import 'extends'
+@import 'componentes'
+@import 'reboot'
+@import 'header'
+
+.hero
+	position: relative
+	z-index: 1
+	padding: 0
+	.container
+		position: relative
+		border: 1px solid var(--white-fade)
+
+	&__img
+		width: 100%
+		transform: scaleX(-1)
+
+	&__content
+		gap: 20px
+		@extend %flex-col
+		position: absolute
+		top: 50%
+		left: 0
+		width: 68%
+		transform: translateY(-50%)
+		padding: 20px 0px 20px 40px
+
+	h1
+		@extend %font-h1
+		margin: 0
+
+	p
+		text-wrap: balance
+		@extend %font-lg
+		margin: 0
+
+	@media screen and ( max-width: 700px )
+		&__img
+			min-height: 150px
+
+		&__content
+			width: 71%
+			gap: 10px
+			padding: 10px 0 10px 15px
+
+			p
+				font-size: 12px
+
+.services
+	h2
+		text-align: center
+		margin-bottom: 10px
+
+	&__descr
+		text-align: center
+		margin: 0 0 40px
+
+	&__wrap
+		@extend %cols
+		--col: 2
+
+	&__item
+		gap: 20px
+		@extend %flex-col
+		padding: 46px 40px
+		border: 1px solid var(--white-fade)
+		background-color: rgba(0, 0, 0, .18)
+		p
+			color: var(--gray)
+
+	h3
+		text-wrap: balance
+
+	@media screen and ( max-width: 800px )
+		&__item
+			padding: 37px 30px
+
+	@media screen and ( max-width: 700px )
+		&__descr
+			margin-bottom: 20px
+
+		&__wrap
+			--col: 1
+			--gap: 10px
+		&__item
+			gap: 10px
+			padding: 20px 15px
+
+.works
+	margin: var(--section-spacing) 0
+	padding: calc(var(--section-spacing) * 2) 0
+	text-align: left
+	background-color: rgba(0, 0, 0, .18)
+
+	h2
+		@extend %font-h2
+		margin: 0 0 14px
+
+	.works__descr
+		margin: 0 0 34px
+		color: var(--gray-light)
+		@extend %font-md
+
+	&__item
+		padding: 34px 0
+		border-top: 1px solid var(--white-fade)
+		&:first-of-type
+			border-top: 0
+			padding-top: 0
+		h3
+			margin: 0 0 10px
+			font-weight: 500
+		p
+			margin: 0
+			color: var(--gray-light)
+			@extend %font-md
+
+	@media screen and ( max-width: 700px )
+		&__item
+			padding: 20px 0
+
+.contacts
+	text-align: center
+
+	h2
+		@extend %font-h2
+		margin: 0 0 30px
+
+	&__card
+		// border-radius: 20px
+		max-width: 620px
+		margin: 0 auto
+		padding: 46px 40px
+		border: 1px solid var(--white-fade)
+		@extend %flex-col
+		align-items: center
+		gap: 28px
+		background-color: rgba(0, 0, 0, 0.18)
+
+		@media screen and (max-width: 700px)
+			padding: 32px 18px
+
+	&__list
+		@extend %flex-col
+		gap: 10px
+		color: var(--gray-light)
+
+		p
+			margin: 0
+			@extend %font-md
+		a
+			color: inherit
+			text-decoration: none
+
+	&__btn
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		min-height: 58px
+		padding: 0 42px
+		border-radius: 6px
+		border: 1px solid var(--white-fade)
+		background-color: rgba(0, 0, 0, 0.18)
+		color: var(--white)
+		@extend %font-sm
+
+@import 'footer'
