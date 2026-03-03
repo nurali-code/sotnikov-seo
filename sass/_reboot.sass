@@ -35,13 +35,12 @@ mark
 section
     padding: var(--section-spacing) 0
 
-
 img
     display: block
     max-width: 100%
     object-fit: cover
 
-.ic 
+.ic
     display: block
     --size: 37px
     width: var(--size)
@@ -49,10 +48,15 @@ img
     height: var(--size)
     aspect-ratio: 1 / 1
 
-ul, ol
-    list-style: none
+ul
+    padding-left: 25px
+    color: var(--gray)
+    @extend %font-md
+    li
+        &:not(:last-child)
+            margin-bottom: 8px
 
-h1, h2, h3, h4, h5, h6 
+h1, h2, h3, h4, h5, h6
     font-weight: 500
 
 a,

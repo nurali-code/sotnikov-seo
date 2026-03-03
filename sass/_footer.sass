@@ -1,7 +1,26 @@
 .footer
-    padding: 20px var(--cont-padd)
+    padding: 20px
     margin-top: auto
     text-align: center
     color: #6f6f6f
+
+    .container
+        gap: 16px
+        @extend %flex-wrap
+        @extend %flex-ac
     p
         @extend %font-md
+
+    .links
+        @extend %flex-ac
+        gap: 10px
+        a
+            border-radius: 8px
+            padding: 6px
+            background-color: #fff
+
+        img
+            width: 18px
+            height: 18px
+            object-fit: contain
+            object-position: center center
