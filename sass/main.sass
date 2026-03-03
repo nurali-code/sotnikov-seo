@@ -30,26 +30,43 @@
 
 	h1
 		@extend %font-h1
+		font-weight: normal
 		margin: 0
 
 	&__text
-		text-transform: uppercase
 		text-wrap: balance
 		max-width: 450px
 		@extend %font-lg
 		margin: 0 auto
+		@media screen and ( min-width: 993px )
+			min-width: 420px
+
+		b
+			text-transform: uppercase
 
 	@media screen and ( max-width: 700px )
 		&__img
 			min-height: 170px
 
 		&__content
-			width: 72%
+			width: 68%
 			gap: 10px
 			padding: 10px 15px 10px 0
 
 		&__text
-			font-size: 11px
+			font-size: 14px
+
+	@media screen and ( max-width: 540px )
+		h1
+			font-size: 5.7vw
+
+		.hero__text
+			font-size: 2.7vw
+			margin: 0 0 0 auto
+
+	@media screen and ( max-width: 480px )
+		&__content
+			width: 70%
 
 .services
 	h2
@@ -74,7 +91,6 @@
 		p
 			color: var(--gray)
 
-	
 	h3
 		text-wrap: balance
 
@@ -89,42 +105,10 @@
 		&__wrap
 			--col: 1
 			--gap: 10px
+
 		&__item
 			gap: 10px
 			padding: 20px 15px
-
-.works
-	margin: var(--section-spacing) 0
-	padding: calc(var(--section-spacing) * 2) 0
-	text-align: left
-	background-color: rgba(0, 0, 0, .3)
-	backdrop-filter: blur(1px)
-
-	h2
-		margin: 0 0 14px
-
-	&__descr
-		margin: 0 0 34px
-		color: var(--gray-light)
-		@extend %font-md
-
-	&__item
-		padding: 34px 0
-		border-top: 1px solid var(--white-fade)
-		&:first-of-type
-			border-top: 0
-			padding-top: 0
-		h3
-			margin: 0 0 10px
-			font-weight: 500
-		p
-			margin: 0
-			color: var(--gray-light)
-			@extend %font-md
-
-	@media screen and ( max-width: 700px )
-		&__item
-			padding: 20px 0
 
 .contacts
 	text-align: center
