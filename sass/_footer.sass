@@ -3,6 +3,8 @@
     margin-top: auto
     text-align: center
     color: #6f6f6f
+    background-color: rgba(0, 0, 0, .3)
+    // backdrop-filter: blur(2px)
 
     .container
         gap: 16px
@@ -12,7 +14,7 @@
         @extend %font-md
 
     .links
-        @extend %flex-ac
+        @extend %flex-cc
         gap: 10px
         a
             border-radius: 8px
@@ -24,3 +26,11 @@
             height: 18px
             object-fit: contain
             object-position: center center
+
+    @media screen and (max-width: 900px)
+        p 
+            width: 100%
+            text-align: center
+        .links 
+            width: 100%
+            margin: 0 auto
