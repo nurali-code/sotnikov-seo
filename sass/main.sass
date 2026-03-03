@@ -9,7 +9,7 @@
 .hero
 	position: relative
 	z-index: 1
-	padding: 0
+	padding: 0 0 var(--section-spacing)
 	.container
 		position: relative
 		border: 1px solid var(--white-fade)
@@ -33,7 +33,7 @@
 		margin: 0
 
 	p
-		max-width: 390px
+		text-transform: uppercase
 		text-wrap: balance
 		@extend %font-lg
 		margin: 0
@@ -100,7 +100,6 @@
 	backdrop-filter: blur(1px)
 
 	h2
-		@extend %font-h2
 		margin: 0 0 14px
 
 	&__descr
@@ -128,6 +127,7 @@
 
 .contacts
 	text-align: center
+	margin-bottom: var(--section-spacing)
 
 	h2
 		@extend %font-h2
