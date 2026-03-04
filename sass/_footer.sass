@@ -8,8 +8,9 @@
 
     .container
         gap: 16px
-        @extend %flex-wrap
-        @extend %flex-ac
+        &:not(.--block)
+            @extend %flex-wrap
+            @extend %flex-ac
     p
         @extend %font-md
 
@@ -28,9 +29,9 @@
             object-position: center center
 
     @media screen and (max-width: 900px)
-        p 
+        p
             width: 100%
             text-align: center
-        .links 
+        .links
             width: 100%
             margin: 0 auto

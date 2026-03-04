@@ -1,0 +1,42 @@
+﻿#topbar a.ps {
+background:url("/images/eng/pers_site.png") no-repeat scroll 0 0 transparent;
+float:left;
+height:17px;
+margin:0;
+text-indent:-10000px;
+width:210px;
+}
+	
+#masthead #photo h1 {
+background:url("/images/eng/ds.png") no-repeat scroll 0 125px transparent;
+height:64px;
+margin:0 59px 0 auto;
+padding:125px 0 0;
+text-indent:-10000px;
+width:561px;
+}
+				#masthead #photo h2 {
+				background:url("/images/eng/slogan.png") no-repeat scroll 0 15px transparent;
+				height:135px;
+				margin:0 125px 0 auto;
+				padding:15px 0 0;
+				text-indent:-10000px;
+				width:378px;
+				}
+
+
+#nav ul li.activity span {
+background-image:url("/images/eng/activity.png");
+
+}
+
+#nav ul li.contact span {
+background-image:url("/images/eng/contacts.png");
+
+}				
+
+#nav ul li.other span {
+background-image:url("/images/eng/other.png");
+
+}		
+		
