@@ -1,6 +1,6 @@
 User-agent: *
-Allow: /*.jpg?*$
-Allow: /*.png?*$
-Disallow: 
+Disallow:
+Allow: /llms.txt
+
 Host: sotnikov.com.ru
 Sitemap: https://sotnikov.com.ru/sitemap.xml

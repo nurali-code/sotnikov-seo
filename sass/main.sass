@@ -13,10 +13,10 @@
 	.container
 		position: relative
 		border: 1px solid var(--white-fade)
-		border-top: none
 
 	&__img
 		width: 100%
+		// transform: scaleX(-1)
 
 	&__content
 		gap: 20px
@@ -54,7 +54,7 @@
 
 	@media screen and ( max-width: 700px )
 		&__img
-			min-height: 154px
+			min-height: 170px
 
 		&__content
 			width: 68%
@@ -69,18 +69,18 @@
 			font-size: 5.7vw
 
 		&__text
+			width: 95%
 			font-size: 2.7vw
 			margin: 0 0 0 auto
 
+		&__img
+			min-height: 40vw
+
 	@media screen and ( max-width: 480px )
 		&__content
-			width: 70%
+			width: 68%
 
 .services
-	&.--error
-		width: 100%
-		margin: auto
-
 	h2
 		text-align: center
 		margin-bottom: 10px
@@ -106,9 +106,6 @@
 	h3
 		text-wrap: balance
 
-	.contacts__btn
-		margin: 0 auto
-
 	@media screen and ( max-width: 800px )
 		&__item
 			padding: 37px 30px
@@ -131,16 +128,26 @@
 
 	h2
 		@extend %font-h2
-		margin: 0 0 30px
+		margin: 0 0 16px
+
+	&__descr
+		@extend %font-sm
+		max-width: 700px
+		margin: 0 auto 30px
+
+	&__wrap
+		@extend %cols
+		--col: 2
+		--gap: 30px
+		align-items: stretch
+
+		@media screen and ( max-width: 900px )
+			--col: 1
 
 	&__card
-		// border-radius: 20px
-		padding: 0
-		list-style: none
-		max-width: 620px
-		margin: 0 auto
 		padding: 46px 40px
 		border: 1px solid var(--white-fade)
+		@extend %flex-jc
 		@extend %flex-col
 		align-items: center
 		gap: 28px
@@ -156,7 +163,6 @@
 		li
 			text-align: left
 			display: table-row
-
 			@extend %font-md
 		span
 			padding: 5px 0
@@ -169,14 +175,180 @@
 			color: inherit
 			text-decoration: none
 
-	&__btn
-		@extend %flex-cc
-		min-height: 58px
-		padding: 0 42px
+	&__business
+		@extend %font-sm
+		color: var(--gray-light)
+		p
+			margin: 5px 0
+
+	&__form-wrapper
+		padding: 46px 40px
+		border: 1px solid var(--white-fade)
+		background-color: rgba(0, 0, 0, 0.18)
+		@extend %flex-col
+		gap: 20px
+
+		@media screen and (max-width: 700px)
+			padding: 32px 18px
+
+	// &__form-text
+	// 	@extend %font-sm
+	// 	color: var(--gray-light)
+	// 	margin: 0
+	// 	text-align: left
+
+	&__form
+		@extend %flex-col
+		gap: 15px
+		text-align: left
+
+		.form-group
+			@extend %flex-col
+			gap: 5px
+
+	.form-group--checkbox
+		margin-top: 5px
+
+.checkbox
+	@extend %flex-as
+	gap: 10px
+	position: relative
+	z-index: 0
+
+	&__label
+		font-size: 13px
+		line-height: 1.4
+		color: var(--gray)
+		padding-left: 28px
+		cursor: pointer
+
+		&::after
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			display: block
+			width: 18px
+			height: 18px
+			margin-top: 1px
+			border: 1px solid var(--white-fade)
+			background-color: rgba(0, 0, 0, .3)
+			background-repeat: no-repeat
+			background-position: center center
+			transition: border-color .3s, background-color .3s
+			z-index: -1
+
+		a
+			color: var(--white-fade)
+			text-decoration: underline
+			text-underline-offset: 2px
+
+			&:hover
+				color: var(--white)
+				opacity: 1
+
+	input[type="checkbox"]
+		position: absolute
+		opacity: 0
+		width: 18px
+		height: 18px
+		z-index: -1
+		&:checked ~ label::after
+			border-color: var(--white)
+			background-image: url('../images/check.svg')
+			background-color: rgba(255, 255, 255, .1)
+
+		&::after
+			opacity: 1
+
+.contacts__btn
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	min-height: 58px
+	padding: 0 42px
+	border: 1px solid var(--white-fade)
+	background-color: rgba(0, 0, 0, 0.3)
+	color: var(--white)
+	@extend %font-sm
+	text-decoration: none
+	cursor: pointer
+	transition: background-color 0.3s, border-color 0.3s
+
+	&:hover
+		background-color: rgba(255, 255, 255, 0.1)
+		border-color: var(--white)
+
+	&--submit
+		margin-top: 10px
+		width: 100%
+
+.article
+	padding: var(--section-spacing) 0
+
+	h1.hd
+		opacity: 1
+		position: static
+		pointer-events: auto
+		font-size: 32px
+		margin: 0 0 30px
+		text-align: center
+
+		@media screen and ( max-width: 700px )
+			font-size: 24px
+
+	h2
+		font-size: 22px
+		margin: 40px 0 20px
+		color: var(--white)
+
+		@media screen and ( max-width: 700px )
+			font-size: 18px
+
+	p
+		margin: 12px 0
+		line-height: 1.6
+		color: var(--bg-light)
+		opacity: .7
+
+	ul
+		margin: 12px 0
+		padding-left: 25px
+
+		li
+			margin: 8px 0
+			color: var(--gray-light)
+			line-height: 1.5
+
+	&__content
+		// max-width: 900px
+		margin: 0 auto
+		padding: 40px
 		border: 1px solid var(--white-fade)
 		background-color: rgba(0, 0, 0, 0.3)
+
+		@media screen and ( max-width: 700px )
+			padding: 20px
+
+	&__intro
+		font-size: 16px
 		color: var(--white)
-		width: fit-content
-		@extend %font-sm
+		margin-bottom: 30px
+
+	&__requisites
+		margin-top: 20px
+		padding: 20px
+		background-color: rgba(0, 0, 0, 0.2)
+		border: 1px solid var(--white-fade)
+
+		p
+			margin: 8px 0
+
+		a
+			color: var(--white)
+			text-decoration: none
+
+			&:hover
+				text-decoration: underline
 
 @import 'footer'
