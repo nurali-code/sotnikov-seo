@@ -19,12 +19,10 @@
 		// transform: scaleX(-1)
 
 	&__content
-		gap: 20px
-		@extend %flex-col
 		position: absolute
 		top: 50%
 		right: 0
-		width: 65%
+		width: 56%
 		transform: translateY(-50%)
 		padding: 20px 40px 20px 0
 
@@ -32,41 +30,75 @@
 		opacity: 0
 		font-size: 10px
 		position: absolute
+		pointer-events: none
 		top: 0
 		left: 0
-		pointer-events: none
-
-	&__title
-		@extend %font-h1
-		font-weight: normal
 		margin: 0
 
-	&__text
+	&__title
+		width: fit-content
+		@extend %font-h1
+		font-weight: 300
+		margin: 0 0 20px
+		padding-bottom: 20px
+		border-bottom: 1px solid rgba(255, 255, 255, .7)
+
+	&__descr
+		--fz: 16px
+		font-weight: 300
+		font-size: var(--fz)
 		text-wrap: balance
 		max-width: 450px
+		letter-spacing: calc( var(--fz) * 0.20 )
 		@extend %font-lg
-		margin: 0 auto
-		@media screen and ( min-width: 993px )
-			min-width: 420px
+		text-transform: uppercase
+		margin: 0 0 6px
+		color: rgba(255, 255, 255, .7)
 
-		b
-			text-transform: uppercase
+	&__list
+		font-weight: 300
+		color: rgba(255, 255, 255, 0.7)
+		li:not(:last-child)
+			margin-bottom: 6px
+
+	@media screen and ( max-width: 993px )
+		&__descr
+			--fz: 12px
 
 	@media screen and ( max-width: 700px )
 		&__img
 			min-height: 170px
 
 		&__content
-			width: 68%
-			gap: 10px
+			width: 58%
 			padding: 10px 15px 10px 0
+
+		&__title
+			padding-bottom: 12px
+			margin-bottom: 12px
 
 		&__text
 			font-size: 14px
 
+		&__descr
+			--fz: 10px
+
 	@media screen and ( max-width: 540px )
+		&__descr
+			--fz: 2.1vw
+			margin-bottom: .6vw
+
 		&__title
-			font-size: 5.7vw
+			font-size: 6vw
+			margin-bottom: 2.5vw
+			padding-bottom: 2.5vw
+
+		&__list
+			li
+				font-size: 3.2vw
+				line-height: 110%
+				&:not(:last-child)
+					margin-bottom: 1.3vw
 
 		&__text
 			width: 95%
@@ -76,9 +108,9 @@
 		&__img
 			min-height: 40vw
 
-	@media screen and ( max-width: 480px )
 		&__content
-			width: 68%
+			top: 47%
+			width: 65%
 
 .services
 	h2
@@ -145,7 +177,7 @@
 			--col: 1
 
 	&__card
-		padding: 46px 40px
+		padding: 40px 40px 50px
 		border: 1px solid var(--white-fade)
 		@extend %flex-jc
 		@extend %flex-col
@@ -157,6 +189,7 @@
 			padding: 32px 18px
 
 	&__list
+		padding-left: 0
 		color: var(--gray-light)
 		display: table
 
@@ -181,26 +214,18 @@
 		p
 			margin: 5px 0
 
-	&__form-wrapper
-		padding: 46px 40px
-		border: 1px solid var(--white-fade)
-		background-color: rgba(0, 0, 0, 0.18)
-		@extend %flex-col
-		gap: 20px
-
-		@media screen and (max-width: 700px)
-			padding: 32px 18px
-
-	// &__form-text
-	// 	@extend %font-sm
-	// 	color: var(--gray-light)
-	// 	margin: 0
-	// 	text-align: left
-
 	&__form
 		@extend %flex-col
+		align-items: stretch
 		gap: 15px
 		text-align: left
+		position: relative
+		#cnames
+			opacity: 0
+			pointer-events: none
+			position: absolute
+			top: 0
+			left: 0
 
 		.form-group
 			@extend %flex-col
@@ -208,6 +233,47 @@
 
 	.form-group--checkbox
 		margin-top: 5px
+
+	&__onmob
+		gap: 20px
+		@extend %flex-col
+		&>*
+			margin: 0
+
+	@media screen and ( min-width: 901px )
+		&__onmob
+			display: none
+
+	@media screen and ( max-width: 900px )
+		&__card 
+			gap: 14px 
+
+		&__form 
+			opacity: 0
+			transform: translateY(20px)
+			transition: all 0.3s ease
+			&.--active
+				animation: fadeIn 0.8s ease forwards
+			&:not(.--active)
+				display: none
+
+		.--hide-on-mobile
+			display: none !important
+
+
+	@media screen and ( min-width: 901px )
+		&__form
+			opacity: 1 !important
+			transform: none !important
+
+
+@keyframes fadeIn
+	0%
+		opacity: 0
+		transform: translateY(20px)
+	100%
+		opacity: 1
+		transform: translateY(0)
 
 .checkbox
 	@extend %flex-as

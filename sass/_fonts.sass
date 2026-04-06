@@ -10,6 +10,13 @@ $font-path: "../fonts" !default
 @font-face
   font-family: "Inter"
   font-style: normal
+  font-weight: 300
+  font-display: swap
+  src: local("Inter"), local("Inter Light"), url(#{$font-path}/Inter-Light.woff2) format("woff2"), url(#{$font-path}/Inter-Light.woff) format("woff")
+
+@font-face
+  font-family: "Inter"
+  font-style: normal
   font-weight: 500
   font-display: swap
   src: local("Inter"), local("Inter Medium"), local("Inter-Medium"), url(#{$font-path}/Inter-Medium.woff2) format("woff2"), url(#{$font-path}/Inter-Medium.woff) format("woff")

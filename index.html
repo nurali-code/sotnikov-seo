@@ -125,14 +125,15 @@
 						class="hero__img">
 				</picture>
 				<div class="hero__content">
+					<p class="hero__descr">Эксперт по гостиничному бизнесу</p>
 					<h1 class="hd">Дмитрий Сотников - эксперт гостиничного бизнеса, сайты для отелей и SEO продвижение
 					</h1>
 					<p class="hero__title">Дмитрий Сотников</p>
-					<p class="hero__text">
-						<b>Эксперт по гостиничному бизнесу:</b><br>
-						сайты для отелей и seo продвижение, <br>
-						электронные замки
-					</p>
+					<ul class="hero__list">
+						<li>Сайты для отелей</li>
+						<li>SEO-продвижение</li>
+						<li>Электронные замки</li>
+					</ul>
 				</div>
 			</div>
 		</section>
@@ -209,6 +210,11 @@
 									rel="noopener noreferrer">@sotnik_moscow</a>
 							</li>
 							<li>
+								<span>Max:</span>
+								<a href="https://max.ru/id504504762256_biz" target="_blank"
+									rel="noopener noreferrer">@id504504762256_biz</a>
+							</li>
+							<li>
 								<span>VK:</span>
 								<a href="https://vk.com/sotnik.moscow" target="_blank"
 									rel="noopener noreferrer">@sotnik.moscow</a>
@@ -218,42 +224,40 @@
 							<p>ИП Сотников Д.Н.</p>
 							<p>ОГРНИП: 326508100197707</p>
 						</div>
-						<a class="contacts__btn" href="mailto:mail@sotnikov.com.ru">Написать в почту</a>
+						<a class="contacts__btn --hide-on-mobile" href="mailto:mail@sotnikov.com.ru">Написать в почту</a>
 					</div>
-					<div class="contacts__form-wrapper">
-						<form class="contacts__form" action="#" method="post">
-							<div class="form-group">
-								<input type="text" id="name" name="name" placeholder="Имя" required>
-							</div>
-							<div class="form-group">
-								<input type="tel" id="phone" name="phone" placeholder="Телефон" required>
-							</div>
-							<div class="form-group">
-								<select id="topic" name="topic" required>
-									<option value="" disabled selected>По какому вопросу</option>
-									<option value="seo">По SEO</option>
-									<option value="site">По сайту</option>
-									<option value="locks">По замкам</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<input type="email" id="email" name="email" placeholder="E-Mail">
-							</div>
-							<div class="form-group">
-								<input type="text" id="hotel" name="hotel" placeholder="Сайт или название отеля">
-							</div>
-							<div class="form-group">
-								<textarea id="comment" name="comment" rows="3" placeholder="Комментарий"></textarea>
-							</div>
-							<div class="form-group form-group--checkbox checkbox">
-								<input type="checkbox" name="consent" id="consent" checked required>
-								<label class="checkbox__label" for="consent">
-									Я ознакомлен и принимаю <a href="/privacy.html" target="_blank" rel="nofollow">Политику конфиденциальности</a> и даю <a href="/consent.html" target="_blank" rel="nofollow">согласие на обработку персональных данных</a>
-								</label>
-							</div>
-							<button type="submit" class="contacts__btn contacts__btn--submit">Отправить заявку</button>
-						</form>
+
+					<div class="contacts__onmob">
+						<p class="contacts__descr">
+							Если Вам нужен аудит сайта отеля, SEO-продвижение или консультация по
+							электронным замкам для гостиницы - заполните форму ниже и я с Вами свяжусь.
+						</p>
+						<button class="contacts__btn" href="#contact-form">Открыть форму</button>
 					</div>
+
+					<form id="contact-form" class="contacts__form contacts__card" action="#" method="post">
+						<input type="text" id="name" name="name" placeholder="Имя" required>
+						<input type="text" id="cnames" name="cnames">
+						<input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+						<select id="topic" name="topic" required>
+							<option disabled selected>По какому вопросу</option>
+							<option value="seo">По SEO</option>
+							<option value="site">По сайту</option>
+							<option value="locks">По замкам</option>
+						</select>
+						<input type="email" id="email" name="email" placeholder="E-Mail">
+						<input type="text" id="hotel" name="hotel" placeholder="Сайт или название отеля">
+						<textarea id="comment" name="comment" rows="3" placeholder="Комментарий"></textarea>
+						<div class="form-group form-group--checkbox checkbox">
+							<input type="checkbox" name="consent" id="consent" checked required>
+							<label class="checkbox__label" for="consent">
+								Я ознакомлен и принимаю <a href="/privacy.html" target="_blank" rel="nofollow">Политику
+									конфиденциальности</a> и даю <a href="/consent.html" target="_blank"
+									rel="nofollow">согласие на обработку персональных данных</a>
+							</label>
+						</div>
+						<button type="submit" class="contacts__btn contacts__btn--submit">Отправить заявку</button>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -267,9 +271,12 @@
 						src="images/dzen.svg" alt="dzen"></a>
 				<a target="_blank" rel="noopener noreferrer" href="https://vk.com/sotnik.moscow"><img
 						src="images/vk.svg" alt="vk"></a>
+				<a href="https://max.ru/id504504762256_biz" target="_blank" rel="noopener noreferrer"><img
+						src="../images/max.png" alt="max"></a>
 			</div>
 		</div>
 	</footer>
+	<script src="js/form-submit.js"></script>
 </body>
 
 </html>
