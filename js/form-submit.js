@@ -9,16 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Check screen width
             if (window.innerWidth <= 901) {
-                // Add active class to form
-                contactForm.classList.add('--active');
-                
-                // Scroll to form
-                setTimeout(() => {
-                    contactForm.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
-                    });
-                }, 100);
+                // Toggle form visibility
+                if (contactForm.classList.contains('--active')) {
+                    // Hide form
+                    contactForm.classList.remove('--active');
+                } else {
+                    // Show form
+                    contactForm.classList.add('--active');
+                    
+                    // Scroll to form only when opening
+                    setTimeout(() => {
+                        contactForm.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }, 100);
+                }
             } else {
                 // For desktop, just scroll to form
                 contactForm.scrollIntoView({ 
@@ -78,17 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.status === 'success') {
                 // Show success message
-                showMessage('Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.', 'success');
+                showMessage('Сообщение успешно отправлено! <br> Мы свяжемся с вами в ближайшее время.', 'success');
                 // Reset form
                 contactForm.reset();
             } else {
                 // Show error message
-                showMessage(data.message || 'Произошла ошибка при отправке. Попробуйте еще раз.', 'error');
+                showMessage(data.message || 'Произошла ошибка при отправке. <br> Попробуйте еще раз.', 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            showMessage('Произошла ошибка при отправке. Попробуйте еще раз.', 'error');
+            showMessage('Произошла ошибка при отправке. <br> Попробуйте еще раз.', 'error');
         })
         .finally(() => {
             // Restore submit button
@@ -108,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create message element
         const messageDiv = document.createElement('div');
         messageDiv.className = `form-message form-message--${type}`;
-        messageDiv.textContent = text;
+        messageDiv.innerHTML = text;
         
         // Style the message with fixed positioning at top right
         messageDiv.style.cssText = `
@@ -121,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
             line-height: 1.4;
             z-index: 1000;
             width: 90%;
-            max-width: 440px;
+            max-width: 400px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             ${type === 'success' 
                 ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' 
