@@ -17,8 +17,12 @@ if (!empty($_POST[ANTI_SPAM_FIELD])) {
     exit;
 }
 
-$_POST['date'] = date('m/d/Y H:i:s');
+$_POST['date'] = date('d.m.Y H:i:s');
 $_POST['user_ip'] = $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN';
+
+if (isset($_POST['consent'])) {
+    $_POST['consent'] = 'Да';
+}
 
 // Проверка обязательных полей
 $requiredFields = ['name', 'phone'];
