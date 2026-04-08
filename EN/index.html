@@ -10,7 +10,7 @@
 	<meta name="description"
 		content="Dmitriy Sotnikov - hospitality industry expert. Websites for hotels, SEO promotion of hotel websites and electronic locks for hotels.">
 
-	<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../css/main.css?v=2.3" type="text/css" media="screen">
 	<link rel="icon" href="../favicon.ico?v2" type="image/x-icon">
 
 	<!-- START SEO HEAD sotnikov.com.ru EN -->
@@ -28,14 +28,14 @@
 		content="Dmitriy Sotnikov - hospitality industry expert. Websites for hotels, SEO promotion of hotel websites and electronic locks for hotels.">
 	<meta property="og:url" content="https://sotnikov.com.ru/en/">
 	<meta property="og:locale" content="en_GB">
-	<meta property="og:image" content="https://sotnikov.com.ru/images/photo.jpg">
+	<meta property="og:image" content="https://sotnikov.com.ru/images/preview.jpg">
 	<meta property="og:image:alt" content="Dmitriy Sotnikov - expert in SEO for hotel websites and hotel websites">
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Dmitriy Sotnikov - hospitality industry expert, websites for hotels and SEO">
 	<meta name="twitter:description"
 		content="Dmitriy Sotnikov - hospitality industry expert. Websites for hotels, SEO promotion of hotel websites and electronic locks for hotels.">
-	<meta name="twitter:image" content="https://sotnikov.com.ru/images/photo.jpg">
+	<meta name="twitter:image" content="https://sotnikov.com.ru/images/preview.jpg">
 
 	<!-- END SEO HEAD sotnikov.com.ru EN -->
 
@@ -63,7 +63,7 @@
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "@id": "https://sotnikov.com.ru/#primaryimage",
-        "url": "https://sotnikov.com.ru/images/photo.jpg"
+        "url": "https://sotnikov.com.ru/images/preview.jpg"
       },
       "mainEntity": { "@id": "https://sotnikov.com.ru/#person" }
     },
@@ -73,7 +73,7 @@
       "name": "Dmitriy Sotnikov",
       "alternateName": ["Дмитрий Сотников","Sotnikov"],
       "url": "https://sotnikov.com.ru/",
-      "image": "https://sotnikov.com.ru/images/photo.jpg",
+      "image": "https://sotnikov.com.ru/images/preview.jpg",
       "email": "mailto:mail@sotnikov.com.ru",
       "jobTitle": "Hospitality industry expert in hotel websites, hotel SEO, direct bookings growth, and hotel technology",
       "description": "Hospitality industry expert in hotel websites, hotel SEO, direct bookings growth, and hotel technology. Practical areas: direct bookings, hotel SEO, electronic locks, check-in control, reducing OTA dependence, and increasing hotel revenue.",
@@ -189,11 +189,12 @@
 			</div>
 		</section>
 
-		<section class="contacts">
+		<section class="contacts" id="contacts">
 			<div class="container">
 				<h2>Contacts</h2>
-				<p class="contacts__descr">If you need a hotel website audit, SEO promotion, or consultation on
-					electronic locks for a hotel - fill out the form below and I will contact you.</p>
+				<p class="contacts__descr --hide-on-mobile">If you need a hotel website audit, SEO promotion, or
+					a consultation on
+					electronic locks for hotels — fill out the form below and I will get back to you.</p>
 
 				<div class="contacts__wrap">
 					<div class="contacts__card">
@@ -208,53 +209,53 @@
 									rel="noopener noreferrer">@sotnik_moscow</a>
 							</li>
 							<li>
+								<span>Max:</span>
+								<a href="https://max.ru/id504504762256_biz" target="_blank"
+									rel="noopener noreferrer">@id504504762256_biz</a>
+							</li>
+							<li>
 								<span>VK:</span>
 								<a href="https://vk.com/sotnik.moscow" target="_blank"
 									rel="noopener noreferrer">@sotnik.moscow</a>
 							</li>
 						</ul>
 						<div class="contacts__business">
-							<p>IE Sotnikov D.N.</p>
+							<p>Individual Entrepreneur Sotnikov D.N.</p>
 							<p>OGRNIP: 326508100197707</p>
 						</div>
-						<a class="contacts__btn" href="mailto:mail@sotnikov.com.ru">Write to email</a>
 					</div>
-					<div class="contacts__form-wrapper">
-						<form class="contacts__form" action="#" method="post">
-							<div class="form-group">
-								<input type="text" id="name" name="name" placeholder="Name" required>
-							</div>
-							<div class="form-group">
-								<input type="tel" id="phone" name="phone" placeholder="Phone" required>
-							</div>
-							<div class="form-group">
-								<select id="topic" name="topic" required>
-									<option value="" disabled selected>By what topic</option>
-									<option value="seo">By SEO</option>
-									<option value="site">By website</option>
-									<option value="locks">By locks</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<input type="email" id="email" name="email" placeholder="E-Mail">
-							</div>
-							<div class="form-group">
-								<input type="text" id="hotel" name="hotel" placeholder="Website or hotel name">
-							</div>
-							<div class="form-group">
-								<textarea id="comment" name="comment" rows="3" placeholder="Comment"></textarea>
-							</div>
-							<div class="form-group form-group--checkbox checkbox">
-								<input type="checkbox" name="consent" id="consent" required>
-								<label class="checkbox__label" for="consent">
-									I have read and agree to the <a href="/privacy.html" target="_blank"
-										rel="nofollow">Privacy Policy</a> and <a href="/consent.html" target="_blank"
-										rel="nofollow">Consent to Personal Data Processing</a>
-								</label>
-							</div>
-							<button type="submit" class="contacts__btn contacts__btn--submit">Send application</button>
-						</form>
+
+					<div class="contacts__onmob">
+						<p class="contacts__descr">
+							If you need a hotel website audit, SEO promotion, or a consultation on
+							electronic locks for hotels — fill out the form below and I will get back to you.
+						</p>
+						<button class="contacts__btn" href="#contact-form">Fill out the form</button>
 					</div>
+
+					<form id="contact-form" class="contacts__form contacts__card" action="#" method="post">
+						<input type="text" id="name" name="name" placeholder="Name*" required>
+						<input type="text" id="cnames" name="cnames">
+						<input type="tel" id="phone" name="phone" placeholder="Phone*" required>
+						<select id="topic" name="topic" required>
+							<option disabled selected>Subject of inquiry</option>
+							<option value="seo">SEO</option>
+							<option value="site">Website</option>
+							<option value="locks">Locks</option>
+						</select>
+						<input type="email" id="email" name="email" placeholder="E-Mail">
+						<input type="text" id="hotel" name="hotel" placeholder="Website or hotel name">
+						<textarea id="comment" name="comment" rows="3" placeholder="Comment"></textarea>
+						<div class="form-group form-group--checkbox checkbox">
+							<input type="checkbox" name="consent" id="consent" required>
+							<label class="checkbox__label" for="consent">
+								I have read and accept the <a href="/privacy.html" target="_blank" rel="nofollow">Privacy
+									Policy</a> and give my <a href="/consent.html" target="_blank"
+									rel="nofollow">consent to the processing of personal data</a>
+							</label>
+						</div>
+						<button type="submit" class="contacts__btn contacts__btn--submit">Submit request</button>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -273,6 +274,9 @@
 			</div>
 		</div>
 	</footer>
+
+	<script src="../js/imask.min.js"></script>
+	<script src="../js/form-submit.js"></script>
 </body>
 
 </html>

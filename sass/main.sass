@@ -2,8 +2,8 @@
 @import 'var'
 @import 'fonts'
 @import 'extends'
-@import 'componentes'
 @import 'reboot'
+@import 'componentes'
 @import 'header'
 
 .hero
@@ -351,6 +351,18 @@
 
 .article
 	padding: var(--section-spacing) 0
+
+	&__back
+		display: inline-block
+		margin-bottom: 20px
+		color: var(--bg-light)
+		opacity: .7
+		text-decoration: none
+		font-size: 14px
+		transition: opacity .2s
+
+		&:hover
+			opacity: 1
 
 	h1.hd
 		opacity: 1

@@ -1,12 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    IMask(document.getElementById('phone'), {
+        mask: '+{7} (000) 000-00-00'
+    });
+
     const contactForm = document.getElementById('contact-form');
     const openFormBtn = document.querySelector('.contacts__onmob .contacts__btn');
-    
+
     // Mobile form functionality
     if (openFormBtn && contactForm) {
-        openFormBtn.addEventListener('click', function(e) {
+        openFormBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Check screen width
             if (window.innerWidth <= 901) {
                 // Toggle form visibility
@@ -16,91 +20,81 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     // Show form
                     contactForm.classList.add('--active');
-                    
+
                     // Scroll to form only when opening
                     setTimeout(() => {
-                        contactForm.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
+                        contactForm.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
                         });
                     }, 100);
                 }
             } else {
                 // For desktop, just scroll to form
-                contactForm.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
+                contactForm.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
-        
-        // Close form when clicking outside (mobile)
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 901 && 
-                contactForm.classList.contains('--active') &&
-                !contactForm.contains(e.target) && 
-                !openFormBtn.contains(e.target)) {
-                contactForm.classList.remove('--active');
-            }
-        });
-        
+
         // Handle window resize
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth > 901) {
                 contactForm.classList.remove('--active');
             }
         });
     }
-    
+
     if (!contactForm) {
         console.error('Contact form not found');
         return;
     }
 
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Get form elements
         const submitBtn = contactForm.querySelector('.contacts__btn--submit');
         const originalText = submitBtn.textContent;
-        
+
         // Disable submit button and show loading state
         submitBtn.disabled = true;
         submitBtn.textContent = 'Отправка...';
-        
+
         // Create FormData object
         const formData = new FormData(contactForm);
-        
+
         // Add current page URL to form data
         formData.append('page_url', window.location.href);
-        
+
         // Send form data via fetch
         fetch('send.php', {
             method: 'POST',
             body: formData,
             credentials: 'same-origin'
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                // Show success message
-                showMessage('Сообщение успешно отправлено! <br> Мы свяжемся с вами в ближайшее время.', 'success');
-                // Reset form
-                contactForm.reset();
-            } else {
-                // Show error message
-                showMessage(data.message || 'Произошла ошибка при отправке. <br> Попробуйте еще раз.', 'error');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showMessage('Произошла ошибка при отправке. <br> Попробуйте еще раз.', 'error');
-        })
-        .finally(() => {
-            // Restore submit button
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Show success message
+                    showMessage('Сообщение успешно отправлено! <br> Мы свяжемся с вами в ближайшее время.', 'success');
+                    // Reset form
+                    contactForm.reset();
+                } else {
+                    // Show error message
+                    showMessage(data.message || 'Произошла ошибка при отправке. <br> Попробуйте еще раз.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage('Произошла ошибка при отправке. <br> Попробуйте еще раз.', 'error');
+            })
+            .finally(() => {
+                // Restore submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            });
     });
 
     // Function to show messages
@@ -115,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const messageDiv = document.createElement('div');
         messageDiv.className = `form-message form-message--${type}`;
         messageDiv.innerHTML = text;
-        
+
         // Style the message with fixed positioning at top right
         messageDiv.style.cssText = `
             position: fixed;
@@ -129,15 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 90%;
             max-width: 400px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            ${type === 'success' 
-                ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' 
+            ${type === 'success'
+                ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;'
                 : 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
             }
         `;
-        
+
         // Add to body
         document.body.appendChild(messageDiv);
-        
+
         // Auto-remove message after 5 seconds
         setTimeout(() => {
             if (messageDiv.parentNode) {
@@ -156,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Phone number validation
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
+        phoneInput.addEventListener('input', function (e) {
             // Remove all non-digit characters except +, (, ), -
             let value = e.target.value.replace(/[^\d\+\(\)\-\s]/g, '');
             e.target.value = value;
@@ -166,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Email validation
     const emailInput = document.getElementById('email');
     if (emailInput) {
-        emailInput.addEventListener('blur', function(e) {
+        emailInput.addEventListener('blur', function (e) {
             const value = e.target.value.trim();
             if (value && !isValidEmail(value)) {
                 e.target.setCustomValidity('Пожалуйста, введите корректный email адрес');
