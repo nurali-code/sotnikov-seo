@@ -3,6 +3,67 @@ document.addEventListener('DOMContentLoaded', function () {
         mask: '+{7} (000) 000-00-00'
     });
 
+    // Custom select
+    document.querySelectorAll('#contact-form select').forEach(function (select) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'custom-select';
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+
+        var trigger = document.createElement('div');
+        trigger.className = 'custom-select__trigger';
+        trigger.textContent = select.options[select.selectedIndex].text;
+        wrapper.appendChild(trigger);
+
+        var optionsEl = document.createElement('div');
+        optionsEl.className = 'custom-select__options';
+
+        Array.from(select.options).forEach(function (option) {
+            if (option.disabled) return;
+            var item = document.createElement('div');
+            item.className = 'custom-select__option';
+            item.dataset.value = option.value;
+            item.textContent = option.text;
+            item.addEventListener('click', function () {
+                select.value = option.value;
+                trigger.textContent = option.text;
+                trigger.classList.add('--selected');
+                wrapper.classList.remove('--open');
+                optionsEl.querySelectorAll('.custom-select__option').forEach(function (o) {
+                    o.classList.remove('--selected');
+                });
+                item.classList.add('--selected');
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+            optionsEl.appendChild(item);
+        });
+
+        wrapper.appendChild(optionsEl);
+
+        trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.querySelectorAll('.custom-select.--open').forEach(function (s) {
+                if (s !== wrapper) s.classList.remove('--open');
+            });
+            wrapper.classList.toggle('--open');
+        });
+
+        document.addEventListener('click', function () {
+            wrapper.classList.remove('--open');
+        });
+
+        // Reset support
+        select.closest('form').addEventListener('reset', function () {
+            setTimeout(function () {
+                trigger.textContent = select.options[select.selectedIndex].text;
+                trigger.classList.remove('--selected');
+                optionsEl.querySelectorAll('.custom-select__option').forEach(function (o) {
+                    o.classList.remove('--selected');
+                });
+            }, 0);
+        });
+    });
+
     const contactForm = document.getElementById('contact-form');
     const openFormBtn = document.querySelector('.contacts__onmob .contacts__btn');
 
@@ -69,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('page_url', window.location.href);
 
         // Send form data via fetch
-        fetch('send.php', {
+        fetch('/send.php', {
             method: 'POST',
             body: formData,
             credentials: 'same-origin'
